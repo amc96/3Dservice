@@ -1,0 +1,13 @@
+{
+  "name": "3d-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional da 3D Service",
+  "scripts": {
+    "dev": "npx serve . -l 5173",
+    "start": "serve . -s -l ${PORT:-3000}"
+  },
+  "dependencies": {
+    "serve": "^14.2.6"
+  }
+}
