@@ -29,3 +29,26 @@ nav.querySelectorAll("a").forEach((link) => {
 // Footer year
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Contact dropdowns ("Fale conosco" — WhatsApp / E-mail)
+const dropdowns = document.querySelectorAll(".contact-dropdown");
+
+document.addEventListener("click", (e) => {
+  dropdowns.forEach((d) => {
+    if (!d.contains(e.target)) d.removeAttribute("open");
+  });
+});
+
+dropdowns.forEach((d) => {
+  d.addEventListener("toggle", () => {
+    if (d.open) {
+      dropdowns.forEach((other) => {
+        if (other !== d) other.removeAttribute("open");
+      });
+    }
+  });
+
+  d.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => d.removeAttribute("open"));
+  });
+});
